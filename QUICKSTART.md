@@ -2,15 +2,15 @@
 
 ## 项目概述
 
-这是一个用于验证 Next.js 中间件在不同版本下行为的项目，特别针对 EdgeOne Pages 平台的部署验证。
+这是一个用于验证 Next.js 中间件在不同版本下行为的项目，特别针对边缘平台的部署验证。
 
-## ⚠️ EdgeOne Pages 平台特性
+## ⚠️ 边缘平台特性
 
 **重要说明**：
-- ✅ **只支持 Edge Runtime**：EdgeOne Pages 只支持 Next.js 的 Edge runtime 中间件
-- ✅ **Edge Functions 打包**：会将 Next.js 的 Edge 部分打包到 EdgeOne Pages 的 Edge Functions
-- ❌ **不支持 Node.js Runtime**：即使 Next.js 15+ 支持 Node.js runtime，EdgeOne Pages 也不支持
-- ❌ **不支持 Next.js 16**：Next.js 16 的 proxy.ts 强制使用 Node.js runtime，不适用于 EdgeOne Pages
+- ✅ **只支持 Edge Runtime**：边缘平台只支持 Next.js 的 Edge runtime 中间件
+- ✅ **Edge Functions 打包**：会将 Next.js 的 Edge 部分打包到 Edge Functions
+- ❌ **不支持 Node.js Runtime**：即使 Next.js 15+ 支持 Node.js runtime，边缘平台也不支持
+- ❌ **不支持 Next.js 16**：Next.js 16 的 proxy.ts 强制使用 Node.js runtime，不适用于边缘平台
 
 **测试范围**：
 - ✅ Next.js 13.x/14.x（Edge runtime）
@@ -100,7 +100,7 @@ npm run dev
      ```
    - 检查响应头中的 `x-detected-bot`
 
-## 部署到 EdgeOne Pages
+## 部署到边缘平台
 
 ### 1. 准备项目
 
@@ -121,9 +121,9 @@ git remote add origin <your-repo-url>
 git push -u origin main
 ```
 
-### 3. 在 EdgeOne Pages 创建项目
+### 3. 在平台创建项目
 
-1. 登录 EdgeOne Pages 控制台
+1. 登录平台控制台
 2. 创建新项目
 3. 连接 Git 仓库
 4. 选择对应分支
@@ -138,11 +138,11 @@ git push -u origin main
 2. 等待构建完成
 3. 访问部署的 URL
 4. 按照上述测试步骤验证中间件功能
-5. 检查 EdgeOne Pages 控制台的日志
+5. 检查平台控制台的日志
 
 ## Next.js 版本与 Node.js 版本对应
 
-| Next.js 版本 | 推荐 Node.js 版本 | EdgeOne Pages 支持 |
+| Next.js 版本 | 推荐 Node.js 版本 | 边缘平台支持 |
 |-------------|------------------|-------------------|
 | 12.x | 16.x, 18.x | ✅ |
 | 13.x | 18.x, 20.x | ✅ |
@@ -150,43 +150,43 @@ git push -u origin main
 | 15.x | 18.x, 20.x | ✅ |
 | 16.x | 20.x, 22.x | ⚠️ 需要验证 |
 
-## 版本特性对比（EdgeOne Pages 适用）
+## 版本特性对比（边缘平台适用）
 
 ### v13/v14 - 增强功能
-- ✅ Edge runtime（EdgeOne Pages 支持）
+- ✅ Edge runtime（边缘平台支持）
 - ✅ 增强的 matcher
 - ✅ userAgent() helper
 - ✅ 改进的 Cookies API
 - ✅ 请求头修改
-- ✅ 会被打包到 EdgeOne Pages Edge Functions
+- ✅ 会被打包到 Edge Functions
 
-### v15 - Edge Runtime（EdgeOne Pages 适用）
+### v15 - Edge Runtime（边缘平台适用）
 - ✅ Edge runtime（必须使用 Edge，不能使用 Node.js）
 - ✅ 增强的 matcher
 - ✅ userAgent() helper
 - ✅ 改进的 Cookies API
 - ✅ 请求头修改
-- ✅ 会被打包到 EdgeOne Pages Edge Functions
-- ❌ 不能使用 Node.js API（EdgeOne Pages 不支持）
+- ✅ 会被打包到 Edge Functions
+- ❌ 不能使用 Node.js API（边缘平台不支持）
 
 ### 不支持的版本
 - ❌ v12：不测试
-- ❌ v16：不支持（强制 Node.js runtime，EdgeOne Pages 不支持）
+- ❌ v16：不支持（强制 Node.js runtime，边缘平台不支持）
 
 ## 常见问题
 
 ### Q: 如何选择测试哪个版本？
 
-A: 根据 EdgeOne Pages 平台特性：
+A: 根据边缘平台特性：
 - ✅ Next.js 13/14：推荐测试，功能完整
 - ✅ Next.js 15（Edge runtime）：推荐测试，最新 Edge 功能
 - ❌ Next.js 12：不测试
-- ❌ Next.js 15（Node.js runtime）：不支持，EdgeOne Pages 不支持 Node.js runtime
+- ❌ Next.js 15（Node.js runtime）：不支持，边缘平台不支持 Node.js runtime
 - ❌ Next.js 16：不支持，强制 Node.js runtime
 
-### Q: EdgeOne Pages 支持 proxy.ts（Next.js 16）吗？
+### Q: 边缘平台支持 proxy.ts（Next.js 16）吗？
 
-A: ❌ 不支持。Next.js 16 的 proxy.ts 强制使用 Node.js runtime，而 EdgeOne Pages 只支持 Edge runtime。建议使用 Next.js 13/14/15 的 Edge runtime 中间件。
+A: ❌ 不支持。Next.js 16 的 proxy.ts 强制使用 Node.js runtime，而边缘平台只支持 Edge runtime。建议使用 Next.js 13/14/15 的 Edge runtime 中间件。
 
 ### Q: 中间件不执行怎么办？
 
@@ -201,9 +201,9 @@ A: 检查以下几点：
 A: 
 1. 在中间件中添加 console.log（注意：在生产环境可能不显示）
 2. 检查响应头中的中间件标识
-3. 查看 EdgeOne Pages 控制台的 **Edge Functions 执行日志**
+3. 查看平台控制台的 **Edge Functions 执行日志**
 4. 使用浏览器开发者工具的 Network 标签
-5. 在 EdgeOne Pages 控制台查看 Edge Functions 的性能指标和执行记录
+5. 在平台控制台查看 Edge Functions 的性能指标和执行记录
 
 ## 测试检查清单
 

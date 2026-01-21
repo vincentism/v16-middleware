@@ -46,6 +46,6 @@ export default function handler(
         return acc
       }, {} as Record<string, string | string[] | undefined>),
     
-    note: '此版本使用 Edge runtime，适用于 EdgeOne Pages 平台',
+    note: '此版本使用 Edge runtime，适用于边缘平台',
   })
 }

@@ -1,14 +1,14 @@
 # Next.js Middleware 验证项目
 
-本项目用于验证 Next.js 中间件在不同版本下的行为，特别是部署到 EdgeOne Pages 平台时的兼容性。
+本项目用于验证 Next.js 中间件在不同版本下的行为，特别是部署到边缘平台时的兼容性。
 
-## ⚠️ EdgeOne Pages 平台特性
+## ⚠️ 边缘平台特性
 
 **重要说明**：
-- ✅ **只支持 Edge Runtime**：EdgeOne Pages 只支持 Next.js 的 Edge runtime 中间件
-- ✅ **Edge Functions 打包**：会将 Next.js 的 Edge 部分打包到 EdgeOne Pages 的 Edge Functions
-- ❌ **不支持 Node.js Runtime**：即使 Next.js 15+ 支持 Node.js runtime，EdgeOne Pages 也不支持
-- ❌ **不支持 Next.js 16**：Next.js 16 的 proxy.ts 强制使用 Node.js runtime，不适用于 EdgeOne Pages
+- ✅ **只支持 Edge Runtime**：边缘平台只支持 Next.js 的 Edge runtime 中间件
+- ✅ **Edge Functions 打包**：会将 Next.js 的 Edge 部分打包到 Edge Functions
+- ❌ **不支持 Node.js Runtime**：即使 Next.js 15+ 支持 Node.js runtime，边缘平台也不支持
+- ❌ **不支持 Next.js 16**：Next.js 16 的 proxy.ts 强制使用 Node.js runtime，不适用于边缘平台
 
 **测试范围**：
 - ✅ Next.js 13.x/14.x（Edge runtime）
@@ -66,14 +66,14 @@ nextjs-middleware-validate/
 ├── package.json
 ├── versions/                    # 不同版本的示例
 │   ├── v13/                    # Next.js 13.x/14.x 示例（Edge runtime）
-│   └── v15/                    # Next.js 15.x 示例（Edge runtime，适用于 EdgeOne Pages）
+│   └── v15/                    # Next.js 15.x 示例（Edge runtime，适用于边缘平台）
 ├── test-cases/                 # 测试用例说明
 │   ├── test-checklist.md       # 完整测试清单（已废弃，包含 v12/v16）
-│   └── test-checklist-edgeone.md # EdgeOne Pages 专用测试清单
+│   └── test-checklist-edgeone.md # 边缘平台专用测试清单
 └── docs/                       # 详细文档
 ```
 
-## 测试场景（EdgeOne Pages 专用）
+## 测试场景（边缘平台专用）
 
 ### 1. 基础功能测试（Edge Runtime）
 - [ ] 路径匹配（matcher）
@@ -93,9 +93,9 @@ nextjs-middleware-validate/
 - [ ] v13/v14 增强功能
 - [ ] v15 Edge runtime（不使用 Node.js runtime）
 
-### 4. EdgeOne Pages Edge Functions 验证
+### 4. Edge Functions 验证
 - [ ] 中间件代码被正确打包到 Edge Functions
-- [ ] Edge Functions 在 EdgeOne Pages 上正常执行
+- [ ] Edge Functions 在边缘平台上正常执行
 - [ ] Edge Functions 执行日志和监控
 - [ ] 静态资源处理（Edge Functions 不处理）
 - [ ] API 路由处理
@@ -117,24 +117,24 @@ npm install
 npm run dev
 ```
 
-### 部署到 EdgeOne Pages
+### 部署到边缘平台
 
 1. 将对应版本的项目推送到 Git 仓库
-2. 在 EdgeOne Pages 控制台创建项目
+2. 在平台控制台创建项目
 3. 连接 Git 仓库并选择对应分支
 4. 配置构建命令和输出目录
 5. 部署并验证中间件功能
 
 ## 注意事项
 
-### EdgeOne Pages 平台限制
+### 边缘平台限制
 - ⚠️ **只支持 Edge Runtime**：必须使用 Edge runtime，不能使用 Node.js runtime
 - ⚠️ **不支持 Next.js 16**：Next.js 16 的 proxy.ts 强制 Node.js runtime，不兼容
-- ✅ **Edge Functions 打包**：中间件会被打包到 EdgeOne Pages 的 Edge Functions
+- ✅ **Edge Functions 打包**：中间件会被打包到 Edge Functions
 - ✅ **支持的版本**：Next.js 13.x, 14.x, 15.x（仅 Edge runtime）
 
 ### 部署要求
-- EdgeOne Pages 支持 Node.js 版本：22.11.0, 20.18.0, 18.20.4, 16.20.2, 14.21.3
+- 支持的 Node.js 版本：22.11.0, 20.18.0, 18.20.4, 16.20.2, 14.21.3
 - 确保 Next.js 版本与 Node.js 版本兼容
 - 确保中间件配置使用 Edge runtime（`runtime: 'edge'` 或不配置，默认就是 Edge）
 - 不要使用 Node.js API（如 fs, crypto 等），这些在 Edge runtime 中不可用
@@ -143,4 +143,4 @@ npm run dev
 
 - [Next.js Middleware 文档](https://nextjs.org/docs/app/building-your-application/routing/middleware)
 - [Next.js 16 升级指南](https://nextjs.org/docs/app/guides/upgrading/version-16)
-- [EdgeOne Pages 文档](https://pages.edgeone.ai/)
+- [Next.js 部署文档](https://nextjs.org/docs/deployment)

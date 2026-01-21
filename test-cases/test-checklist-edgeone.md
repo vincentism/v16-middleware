@@ -1,10 +1,10 @@
-# Next.js Middleware EdgeOne Pages 测试用例清单
+# Next.js Middleware 边缘平台 测试用例清单
 
 ## 重要说明
 
-**EdgeOne Pages 平台特性**：
+**边缘平台特性**：
 - ✅ 只支持 Next.js 的 **Edge Runtime** 中间件
-- ✅ 会将 Next.js 的 Edge 部分打包到 **EdgeOne Pages 的 Edge Functions**
+- ✅ 会将 Next.js 的 Edge 部分打包到 **Edge Functions**
 - ❌ 不支持 Node.js runtime 中间件（即使 Next.js 15+ 支持）
 - ❌ 不支持 Next.js 16 的 proxy.ts（强制 Node.js runtime）
 
@@ -20,7 +20,7 @@
 
 - 在每个测试用例前使用 `- [ ]` 或 `- [x]` 来标记测试状态
 - 记录测试结果和遇到的问题
-- 重点验证 Edge runtime 功能和 EdgeOne Pages Edge Functions 的兼容性
+- 重点验证 Edge runtime 功能和 边缘平台 Edge Functions 的兼容性
 
 ---
 
@@ -30,7 +30,7 @@
 
 **测试人员**: tomcomtang
 
-**EdgeOne Pages 环境**: 
+**边缘平台环境**: 
 - [ ] 开发环境
 - [ ] 生产环境
 
@@ -39,7 +39,7 @@
 - [ ] 14.x
 - [ ] 15.x
 
-**EdgeOne Pages Edge Functions 版本**: 
+**Edge Functions 版本**: 
 
 ---
 
@@ -50,7 +50,7 @@
 #### 路径匹配（增强）
 - [ ] **TC-13-001**: 访问 `/api/test`，验证中间件在 Edge Functions 中执行
   - 预期: 响应头包含 `x-middleware-version: v13`
-  - 预期: EdgeOne Pages 日志显示 Edge Function 执行
+  - 预期: 平台日志显示 Edge Function 执行
   - 实际结果: 
 
 - [ ] **TC-13-002**: 访问 `/protected/dashboard`，验证中间件执行
@@ -123,24 +123,24 @@
   - 预期: 响应头包含 `x-timestamp`，格式为 ISO 字符串
   - 实际结果: 
 
-### 1.3 EdgeOne Pages 部署验证
+### 1.3 边缘平台 部署验证
 
-- [ ] **TC-13-016**: 在 EdgeOne Pages 上构建成功
+- [ ] **TC-13-016**: 在 边缘平台 上构建成功
   - 预期: 构建无错误
   - 预期: Edge Functions 代码正确打包
   - 实际结果: 
 
 - [ ] **TC-13-017**: 验证中间件被正确打包到 Edge Functions
-  - 预期: EdgeOne Pages 控制台显示 Edge Function 创建
+  - 预期: 边缘平台 控制台显示 Edge Function 创建
   - 预期: 中间件代码在 Edge Functions 中执行
   - 实际结果: 
 
 - [ ] **TC-13-018**: 验证 Edge Functions 执行日志
-  - 预期: EdgeOne Pages 日志显示中间件执行记录
+  - 预期: 边缘平台 日志显示中间件执行记录
   - 预期: 可以查看执行时间和错误信息
   - 实际结果: 
 
-- [ ] **TC-13-019**: 验证所有功能在 EdgeOne Pages 上正常工作
+- [ ] **TC-13-019**: 验证所有功能在 边缘平台 上正常工作
   - 预期: 部署后所有中间件功能正常
   - 预期: 性能在可接受范围内
   - 实际结果: 
@@ -160,7 +160,7 @@
   - 预期: 响应头包含 `x-middleware-version: v15`
   - 实际结果: 
 
-- [ ] **TC-15-003**: 验证不使用 Node.js runtime（EdgeOne Pages 不支持）
+- [ ] **TC-15-003**: 验证不使用 Node.js runtime（边缘平台 不支持）
   - 预期: 配置中不包含 `runtime: 'nodejs'`
   - 预期: 不使用 Node.js API
   - 实际结果: 
@@ -170,7 +170,7 @@
 #### 路径匹配
 - [ ] **TC-15-004**: 访问 `/api/test`，验证中间件在 Edge Functions 中执行
   - 预期: 响应头包含中间件标识
-  - 预期: EdgeOne Pages 日志显示 Edge Function 执行
+  - 预期: 平台日志显示 Edge Function 执行
   - 实际结果: 
 
 - [ ] **TC-15-005**: 访问 `/admin/dashboard`，验证中间件执行
@@ -216,31 +216,31 @@
   - 预期: Edge Functions 冷启动时间可接受
   - 实际结果: 
 
-### 2.4 EdgeOne Pages 部署验证
+### 2.4 边缘平台 部署验证
 
-- [ ] **TC-15-013**: 在 EdgeOne Pages 上构建成功
+- [ ] **TC-15-013**: 在 边缘平台 上构建成功
   - 预期: 构建无错误
   - 预期: Edge Functions 代码正确打包
   - 实际结果: 
 
 - [ ] **TC-15-014**: 验证中间件被正确打包到 Edge Functions
-  - 预期: EdgeOne Pages 控制台显示 Edge Function 创建
+  - 预期: 边缘平台 控制台显示 Edge Function 创建
   - 预期: 中间件代码在 Edge Functions 中执行
   - 实际结果: 
 
-- [ ] **TC-15-015**: 验证所有功能在 EdgeOne Pages 上正常工作
+- [ ] **TC-15-015**: 验证所有功能在 边缘平台 上正常工作
   - 预期: 部署后所有中间件功能正常
   - 预期: Edge runtime 功能完整可用
   - 实际结果: 
 
 ---
 
-## 三、EdgeOne Pages Edge Functions 特定测试
+## 三、边缘平台 Edge Functions 特定测试
 
 ### 3.1 Edge Functions 打包验证
 
 - [ ] **TC-EDGE-001**: 验证中间件代码被正确打包
-  - 预期: EdgeOne Pages 构建日志显示 Edge Function 打包成功
+  - 预期: 边缘平台 构建日志显示 Edge Function 打包成功
   - 预期: 中间件代码被包含在 Edge Functions 中
   - 实际结果: 
 
@@ -251,7 +251,7 @@
 
 - [ ] **TC-EDGE-003**: 验证代码大小限制
   - 预期: Edge Function 代码大小在限制范围内
-  - 预期: 没有超出 EdgeOne Pages 的限制
+  - 预期: 没有超出 边缘平台 的限制
   - 实际结果: 
 
 ### 3.2 Edge Functions 执行验证
@@ -274,7 +274,7 @@
 ### 3.3 Edge Functions 日志和监控
 
 - [ ] **TC-EDGE-007**: 验证 Edge Function 执行日志
-  - 预期: EdgeOne Pages 控制台显示执行日志
+  - 预期: 边缘平台 控制台显示执行日志
   - 预期: 可以查看执行时间、错误等信息
   - 实际结果: 
 
@@ -339,7 +339,7 @@
 
 ---
 
-## 五、EdgeOne Pages 平台特定测试
+## 五、边缘平台 平台特定测试
 
 ### 5.1 构建和部署
 
@@ -360,7 +360,7 @@
 
 ### 5.2 运行时验证
 
-- [ ] **TC-PLATFORM-004**: 验证中间件在 EdgeOne Pages 上执行
+- [ ] **TC-PLATFORM-004**: 验证中间件在 边缘平台 上执行
   - 预期: 中间件正常执行，响应头正确
   - 预期: Edge Functions 正常工作
   - 实际结果: 
@@ -417,12 +417,12 @@
 
 - [ ] **TC-EDGE-ERR-001**: 测试无效的 matcher 配置
   - 预期: 构建时或运行时给出错误提示
-  - 预期: EdgeOne Pages 构建失败或警告
+  - 预期: 边缘平台 构建失败或警告
   - 实际结果: 
 
 - [ ] **TC-EDGE-ERR-002**: 测试中间件中抛出错误
   - 预期: 错误被正确处理，不影响应用
-  - 预期: 错误被记录到 EdgeOne Pages 日志
+  - 预期: 错误被记录到 边缘平台 日志
   - 实际结果: 
 
 - [ ] **TC-EDGE-ERR-003**: 测试超长路径
@@ -468,7 +468,7 @@
 
 ### 版本兼容性总结
 
-| Next.js 版本 | EdgeOne Pages 支持 | Edge Functions 打包 | 主要问题 | 建议 |
+| Next.js 版本 | 边缘平台 支持 | Edge Functions 打包 | 主要问题 | 建议 |
 |-------------|-------------------|-------------------|---------|------|
 | 13.x | | | | |
 | 14.x | | | | |
@@ -486,7 +486,7 @@
 
 **测试结论**: 
 
-**EdgeOne Pages Edge Functions 兼容性**: 
+**边缘平台 Edge Functions 兼容性**: 
 
 **建议**: 
 
@@ -526,9 +526,9 @@ npm run build
   # 测试 Bot User-Agent
   curl -H "User-Agent: Googlebot" http://localhost:3000/api/test
   ```
-- **EdgeOne Pages 控制台**: 查看 Edge Functions 执行日志和性能指标
+- **边缘平台 控制台**: 查看 Edge Functions 执行日志和性能指标
 
-### EdgeOne Pages 部署检查清单
+### 边缘平台 部署检查清单
 
 - [ ] Git 仓库已连接
 - [ ] 构建命令已配置（`npm run build`）
@@ -541,7 +541,7 @@ npm run build
 ### Edge Functions 验证清单
 
 - [ ] 中间件代码被正确打包到 Edge Functions
-- [ ] Edge Functions 在 EdgeOne Pages 控制台可见
+- [ ] Edge Functions 在 边缘平台 控制台可见
 - [ ] Edge Functions 执行日志正常
 - [ ] 性能指标在可接受范围内
 - [ ] 错误处理和日志记录正常
@@ -550,4 +550,4 @@ npm run build
 
 **文档版本**: 2.0  
 **最后更新**: 2026-01-20  
-**适用范围**: EdgeOne Pages Edge Functions 环境
+**适用范围**: 边缘平台 Edge Functions 环境

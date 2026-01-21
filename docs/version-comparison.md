@@ -317,7 +317,7 @@ export async function proxy(request: NextRequest) {
 - **错误处理**: 妥善处理错误情况
 - **日志记录**: 记录重要的操作和错误
 
-### 4. EdgeOne Pages 部署
+### 4. 边缘平台 部署
 
 - **测试构建**: 在本地测试构建过程
 - **检查日志**: 部署后检查构建和运行时日志
@@ -368,7 +368,7 @@ Next.js 中间件从 v12 到 v16 经历了显著的变化：
 3. **运行时支持**: 从仅 Edge 到支持 Node.js
 4. **重大重构**: v16 的 proxy 重命名和强制 Node.js runtime
 
-在 EdgeOne Pages 上部署时，需要：
+在 边缘平台 上部署时，需要：
 - 确认平台支持的 Next.js 版本
 - 测试各个版本的中间件功能
 - 验证运行时环境

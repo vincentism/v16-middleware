@@ -5,13 +5,13 @@ import { userAgent } from 'next/server'
 /**
  * Next.js 15.x Middleware 示例（Edge Runtime）
  * 
- * 注意：EdgeOne Pages 只支持 Edge Runtime
- * - EdgeOne Pages 会将 Next.js 的 Edge 部分打包到 Edge Functions
+ * 注意：边缘平台只支持 Edge Runtime
+ * - 边缘平台会将 Next.js 的 Edge 部分打包到 Edge Functions
  * - 不支持 Node.js runtime（即使 v15 支持）
  * - 使用 Edge runtime 以获得最佳性能和兼容性
  */
 
-// 配置使用 Edge runtime（EdgeOne Pages 要求）
+// 配置使用 Edge runtime（边缘平台要求）
 export const config = {
   runtime: 'experimental-edge', // Next.js 15 中 edge runtime 需使用 experimental-edge
   matcher: [

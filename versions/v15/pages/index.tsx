@@ -58,8 +58,8 @@ const Home: NextPage = () => {
           <h2>版本信息</h2>
           <p>Next.js 版本: 15.x</p>
           <p>Middleware 文件: middleware.ts</p>
-          <p>Runtime: <strong>Edge</strong> (EdgeOne Pages 只支持 Edge runtime)</p>
-          <p>注意: EdgeOne Pages 会将 Edge runtime 中间件打包到 Edge Functions</p>
+          <p>Runtime: <strong>Edge</strong> (边缘平台只支持 Edge runtime)</p>
+          <p>注意: 边缘平台会将 Edge runtime 中间件打包到 Edge Functions</p>
           <p>新特性: 增强的 Edge runtime 功能，userAgent helper，改进的 Cookies API</p>
         </section>
 
@@ -93,7 +93,7 @@ const Home: NextPage = () => {
             <li>✅ 请求验证</li>
           </ul>
           
-          <p><strong>注意</strong>: 此版本配置为 Edge runtime，适用于 EdgeOne Pages 平台。</p>
+          <p><strong>注意</strong>: 此版本配置为 Edge runtime，适用于边缘平台。</p>
         </section>
       </main>
     </div>

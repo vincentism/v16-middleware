@@ -1,7 +1,7 @@
 {
   "name": "nextjs-middleware-validate",
   "version": "1.0.0",
-  "description": "Next.js middleware validation project for EdgeOne Pages deployment",
+  "description": "Next.js middleware validation project for edge platform deployment",
   "private": true,
   "scripts": {
     "dev:v12": "cd versions/v12 && npm run dev",
@@ -16,7 +16,6 @@
   "keywords": [
     "nextjs",
     "middleware",
-    "edgeone",
     "validation"
   ],
   "author": "",

@@ -200,30 +200,30 @@ export const config = {
 
 ---
 
-## EdgeOne Pages 平台要求
+## 边缘平台 平台要求
 
 ### ⚠️ 重要限制
 
-**EdgeOne Pages 只支持 Edge Runtime**：
+**边缘平台 只支持 Edge Runtime**：
 
 ```typescript
-// ✅ 正确配置（EdgeOne Pages 支持）
+// ✅ 正确配置（边缘平台 支持）
 export const config = {
   runtime: 'edge',  // 或省略（默认就是 Edge）
   matcher: ['/api/:path*']
 }
 
-// ❌ 错误配置（EdgeOne Pages 不支持）
+// ❌ 错误配置（边缘平台 不支持）
 export const config = {
-  runtime: 'nodejs',  // EdgeOne Pages 不支持 Node.js runtime
+  runtime: 'nodejs',  // 边缘平台 不支持 Node.js runtime
   matcher: ['/api/:path*']
 }
 ```
 
-### EdgeOne Pages 配置建议
+### 边缘平台 配置建议
 
 ```typescript
-// middleware.ts - EdgeOne Pages 推荐配置
+// middleware.ts - 边缘平台 推荐配置
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
@@ -349,11 +349,11 @@ A:
 A: 
 - 默认是 Edge runtime（不配置或 `runtime: 'edge'`）
 - 如果需要 Node.js API，配置 `runtime: 'nodejs'`
-- 但注意：EdgeOne Pages 不支持 Node.js runtime
+- 但注意：边缘平台 不支持 Node.js runtime
 
-### Q: EdgeOne Pages 支持 Node.js runtime 吗？
+### Q: 边缘平台 支持 Node.js runtime 吗？
 
-A: ❌ 不支持。EdgeOne Pages 只支持 Edge runtime，会将中间件打包到 Edge Functions。
+A: ❌ 不支持。边缘平台 只支持 Edge runtime，会将中间件打包到 Edge Functions。
 
 ### Q: 不配置 runtime 会使用什么？
 
@@ -369,7 +369,7 @@ A: ❌ 不可以。一个中间件只能使用一种 runtime。如果需要 Node
 
 ## 最佳实践
 
-### 1. EdgeOne Pages 部署
+### 1. 边缘平台 部署
 
 ```typescript
 // ✅ 推荐配置
