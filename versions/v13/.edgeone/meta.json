@@ -1,0 +1,25 @@
+{
+  "conf": {
+    "headers": [],
+    "redirects": [],
+    "rewrites": [],
+    "caches": [],
+    "has404": true,
+    "ssr404": true
+  },
+  "has404": true,
+  "frameworkRoutes": [
+    {
+      "regexPath": "/_next/static/.*",
+      "isStatic": true
+    },
+    {
+      "regexPath": "/",
+      "isStatic": true
+    },
+    {
+      "regexPath": "/(404|500|login)",
+      "isStatic": true
+    }
+  ]
+}
