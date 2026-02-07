@@ -29,6 +29,9 @@ export const config = {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+
+  return NextResponse.redirect(new URL('/login', request.url))
+
   // 示例 1: 使用异步 API（v16 全面异步化）
   const timestamp = Date.now()
   const response = NextResponse.next()

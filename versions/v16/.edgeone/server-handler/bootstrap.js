@@ -35,9 +35,9 @@ function _fetch(
 }
 
 function getUrl(request) {
-  // 直接从 request.url 获取 URL，避免消费 request body
-  const urlString = request instanceof Request ? request.url : request;
-  return new URL(urlString);
+  const req = new Request(request);
+  const url = new URL(req.url);
+  return url;
 }
 
 function getHostCache(host) {

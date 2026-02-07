@@ -1,4 +1,11 @@
 {
   "routes": [],
-  "middleware": null
+  "middleware": {
+    "runtime": "nodejs",
+    "matcher": [
+      {
+        "source": "/:path*"
+      }
+    ]
+  }
 }

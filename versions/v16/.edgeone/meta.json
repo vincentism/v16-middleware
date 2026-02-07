@@ -25,5 +25,13 @@
       "regexPath": "/secure/dashboard",
       "isStatic": true
     }
-  ]
+  ],
+  "middleware": {
+    "runtime": "nodejs",
+    "matcher": [
+      {
+        "source": "/:path*"
+      }
+    ]
+  }
 }
